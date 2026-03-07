@@ -1,0 +1,210 @@
+﻿@model IEnumerable<Wattpadmock1.Models.Story>
+@{
+    ViewData["Title"] = "Library";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>The Library</title>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }s
+
+        body {
+            background: #000000;
+            font-family: 'Jost', sans-serif;
+            color: #d4b88a;
+            min-height: 100vh;
+        }
+
+  .navbar {
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(180,140,90,0.1);
+  }
+
+            .navbar .brand {
+                font-family: 'Jost', sans-serif;
+                font-size: 20px;
+                font-weight: 500;
+                letter-spacing: 5px;
+                text-transform: uppercase;
+                color: #c8a87a;
+                text-decoration: none;
+            }
+  }
+
+  .navbar-links a {
+    color: rgba(180,140,90,0.6);
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-left: 30px;
+    transition: color 0.3s;
+  }
+
+  .navbar-links a:hover { color: #c8a87a; }
+
+  .hero {
+    text-align: center;
+    padding: 60px 20px 40px;
+  }
+
+      font-family: 'Jost', sans-serif;
+        font-size: 20px;
+        font-weight: 500;
+        letter-spacing: 5px;
+  }
+
+  .hero p {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: rgba(180,140,90,0.35);
+  }
+
+  .write-btn {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 12px 35px;
+    border: 1px solid rgba(180,140,90,0.4);
+    color: #c8a87a;
+    text-decoration: none;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    border-radius: 2px;
+            background: transparent;
+            transition: all 0.3s;
+  }
+
+            .write-btn:hover {
+                background: rgba(200,168,106,0.08);
+                box-shadow: none;
+                letter-spacing: 6px;
+            }
+
+  }
+
+  .stories-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 25px;
+    padding: 40px 50px;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .story-card {
+            background: #111111;
+    border: 1px solid rgba(180,140,90,0.1);
+    border-radius: 4px;
+    padding: 25px;
+    transition: all 0.3s;
+    text-decoration: none;
+    display: block;
+  }
+
+  .story-card:hover {
+    border-color: rgba(180,140,90,0.35);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    transform: translateY(-3px);
+  }
+
+  .story-genre {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: rgba(180,140,90,0.4);
+    margin-bottom: 12px;
+  }
+
+        .story-title {
+            font-family: 'Jost', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: #c8a87a;
+            margin-bottom: 10px;
+        }
+  }
+
+  .story-desc {
+    font-size: 13px;
+    color: rgba(180,140,90,0.5);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .story-author {
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(180,140,90,0.35);
+    text-transform: uppercase;
+  }
+
+  .empty {
+    text-align: center;
+    padding: 80px;
+    color: rgba(180,140,90,0.3);
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+        <a class="brand" href="/">
+            <a class="brand" href="/">Wattmock</a>
+        </a>
+  <div class="navbar-links">
+    <a href="/Story">Library</a>
+    <a href="/Story/Create">Write</a>
+    <a href="/Account/Logout">Logout</a>
+  </div>
+</nav>
+
+<div class="hero">
+  <h1>The Library</h1>
+        <p>write here</p>
+        <a href="/Story/Create" class="write-btn">+ Write a Story</a>
+</div>
+
+<div class="stories-grid">
+  @if (!Model.Any())
+  {
+    <div class="empty">
+      <p>No stories yet. Be the first to write one.</p>
+    </div>
+  }
+  else
+  {
+    @foreach (var story in Model)
+    {
+      <a class="story-card" href="/Story/Read/@story.Id">
+        <div class="story-genre">@(story.Genre ?? "General")</div>
+        <div class="story-title">@story.Title</div>
+        <div class="story-desc">@(story.Description.Length > 100 ? story.Description.Substring(0, 100) + "..." : story.Description)</div>
+                    <div class="story-author">By the author @story.Author?.Username</div>
+                </a>
+    }
+  }
+</div>
+
+</body>
+</html>

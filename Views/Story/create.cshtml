@@ -1,0 +1,188 @@
+﻿@{
+    ViewData["Title"] = "Write a Story";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wattmock — Write</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000000;
+            font-family: 'Jost', sans-serif;
+            color: #c8a86a;
+        }
+
+        .navbar {
+            padding: 20px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(200,168,106,0.1);
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #c8a86a;
+            text-decoration: none;
+        }
+
+        .navbar-links a {
+            color: rgba(200,168,106,0.5);
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+            .navbar-links a:hover {
+                color: #c8a86a;
+            }
+
+        .container {
+            max-width: 700px;
+            margin: 60px auto;
+            padding: 0 30px;
+        }
+
+        .page-title {
+            font-size: 11px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(200,168,106,0.35);
+            margin-bottom: 40px;
+        }
+
+        .input-group {
+            margin-bottom: 30px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: rgba(200,168,106,0.5);
+            margin-bottom: 10px;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            padding: 12px 0;
+            background: transparent;
+            border: none;
+            border-bottom: 1px solid rgba(200,168,106,0.2);
+            color: #c8a86a;
+            font-size: 15px;
+            font-family: 'Jost', sans-serif;
+            font-weight: 300;
+            outline: none;
+            transition: border-color 0.3s;
+            resize: none;
+        }
+
+            input:focus, textarea:focus, select:focus {
+                border-bottom-color: #c8a86a;
+            }
+
+            input::placeholder, textarea::placeholder {
+                color: rgba(200,168,106,0.15);
+            }
+
+            select option {
+                background: #111;
+                color: #c8a86a;
+            }
+
+        textarea {
+            min-height: 300px;
+            line-height: 1.8;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 14px;
+            margin-top: 15px;
+            background: #c8a86a;
+            color: #000;
+            border: none;
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+
+            .btn:hover {
+                background: #d4b87a;
+                letter-spacing: 6px;
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <a class="brand" href="/">Wattmock</a>
+        <div class="navbar-links">
+            <a href="/Story">Library</a>
+            <a href="/Story/Create">Write</a>
+            <a href="/Account/Logout">Logout</a>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="page-title">New Story</div>
+
+        <form method="post">
+            <div class="input-group">
+                <label>Title</label>
+                <input type="text" name="title" placeholder="your story title" required />
+            </div>
+            <div class="input-group">
+                <label>Genre</label>
+                <select name="genre">
+                    <option value="">Select a genre</option>
+                    <option value="Romance">Romance</option>
+                    <option value="Fantasy">Fantasy</option>
+                    <option value="Mystery">Mystery</option>
+                    <option value="Horror">Horror</option>
+                    <option value="Sci-Fi">Sci-Fi</option>
+                    <option value="Drama">Drama</option>
+                    <option value="Adventure">Adventure</option>
+                    <option value="Poetry">Poetry</option>
+                    <option value="Other">Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Description</label>
+                <input type="text" name="description" placeholder="a short description" required />
+            </div>
+            <div class="input-group">
+                <label>Content</label>
+                <textarea name="content" placeholder="write your story here..."></textarea>
+            </div>
+            <button type="submit" class="btn">Publish Story</button>
+        </form>
+    </div>
+
+</body>
+</html>

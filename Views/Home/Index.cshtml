@@ -1,0 +1,169 @@
+﻿@{
+    ViewData["Title"] = "Home";
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wattmock</title>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #000000;
+            font-family: 'Jost', sans-serif;
+            color: #c8a86a;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            padding: 25px 50px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid rgba(200,168,106,0.1);
+        }
+
+        .brand {
+            font-size: 20px;
+            font-weight: 500;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: #c8a86a;
+        }
+
+        .navbar-links a {
+            color: rgba(200,168,106,0.5);
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-left: 30px;
+            transition: color 0.3s;
+        }
+
+            .navbar-links a:hover {
+                color: #c8a86a;
+            }
+
+        .hero {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 80px 30px;
+        }
+
+        .hero-title {
+            font-size: 64px;
+            font-weight: 300;
+            color: #c8a86a;
+            letter-spacing: 8px;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-sub {
+            font-size: 12px;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: rgba(200,168,106,0.35);
+            margin-bottom: 50px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .btn-primary {
+            padding: 14px 40px;
+            background: #c8a86a;
+            color: #000;
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border: none;
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .btn-primary:hover {
+                background: #d4b87a;
+                letter-spacing: 6px;
+            }
+
+        .btn-secondary {
+            padding: 14px 40px;
+            background: transparent;
+            color: #c8a86a;
+            font-family: 'Jost', sans-serif;
+            font-size: 11px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            border: 1px solid rgba(200,168,106,0.3);
+            border-radius: 2px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+            .btn-secondary:hover {
+                border-color: #c8a86a;
+                letter-spacing: 6px;
+            }
+
+        .footer {
+            text-align: center;
+            padding: 25px;
+            font-size: 11px;
+            letter-spacing: 2px;
+            color: rgba(200,168,106,0.2);
+            border-top: 1px solid rgba(200,168,106,0.08);
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="brand">Wattmock</div>
+        <div class="navbar-links">
+            <a href="/Story">Library</a>
+            <a href="/Account/Login">Sign In</a>
+            <a href="/Account/Register">Register</a>
+        </div>
+    </nav>
+
+    <div class="hero">
+        <div class="hero-title">Wattmock</div>
+        <div class="hero-sub">a place to write — a place to read</div>
+        <div class="hero-buttons">
+            <a href="/Account/Register"><button class="btn-primary">Begin Your Story</button></a>
+            <a href="/Story"><button class="btn-secondary">Browse Library</button></a>
+        </div>
+    </div>
+
+    <div class="footer">
+        © 2026 Wattmock — all rights reserved
+    </div>
+
+</body>
+</html>
